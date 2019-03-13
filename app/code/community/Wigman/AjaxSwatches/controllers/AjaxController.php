@@ -18,7 +18,8 @@ class Wigman_AjaxSwatches_AjaxController extends Mage_Core_Controller_Front_Acti
 
             $_images[] = array(
                 'thumb' => (string) $_imageHelper->init($_product, 'thumbnail', $_imageFile)->resize(75),
-                'image' => (string) $_imageHelper->init($_product, 'image', $_imageFile)
+                'image' => (string) $_imageHelper->init($_product, 'image', $_imageFile),
+                'sku'   => (string) $_product->getSku()
             );
         }
 
