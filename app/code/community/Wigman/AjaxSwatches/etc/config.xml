@@ -36,11 +36,13 @@
                 <class>Wigman_AjaxSwatches_Model</class>
                 <resourceModel>configurableswatches_resource</resourceModel>
             </wigman_ajaxswatches>
+            <!-- fix compatibility with swatches mediafallback 
             <configurableswatches_resource>
                 <rewrite>
                     <catalog_product_attribute_super_collection>Wigman_AjaxSwatches_Model_Resource_Catalog_Product_Attribute_Super_Collection</catalog_product_attribute_super_collection>
                 </rewrite>
             </configurableswatches_resource>
+            -->
 
             <configurableswatches>
                 <rewrite>
