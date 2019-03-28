@@ -47,20 +47,24 @@ class Wigman_AjaxSwatches_Block_Catalog_Product_View_Type_Configurable extends W
     protected function _validateAttributeInfo(&$info)
     {
         $ret = parent::_validateAttributeInfo($info);
+
+      if(Mage::getVersionInfo()['minor'] >= '9' &&  Mage::getVersionInfo()['revision'] >= 3) {
+
+      }
+      else {
         // Dont loose time if not vaid
-        if($ret){
-
-            // traverse info and append sort
-            foreach($info['options'] as &$option){
-                $option['sort_id'] = $this->_optionLabels[$option['id']][0]['sort_id'];
-                $test ='';
-            }
-            //Wigman: then finally we sort the attribute options array by sort_id
-            usort($info['options'], function ($a, $b) {
-                return $a['sort_id'] - $b['sort_id'];
-            });
-
+        if ($ret) {
+          // traverse info and append sort
+          foreach($info['options'] as &$option){
+              $option['sort_id'] = $this->_optionLabels[$option['id']][0]['sort_id'];
+              $test ='';
+          }
+          //Wigman: then finally we sort the attribute options array by sort_id
+          usort($info['options'], function ($a, $b) {
+              return $a['sort_id'] - $b['sort_id'];
+          });
         }
+      }
         return $ret;
     }
 }
